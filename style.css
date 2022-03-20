@@ -1,0 +1,230 @@
+
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    header {
+     background-image: url(img/banner.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+    .logo {
+        flex-basis: 30%;
+    }
+
+    .logo img {
+        width: 130px;
+    }
+
+    .menu {
+        flex-basis: 70%;
+    }
+
+    .menu ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+    .menu ul li a {
+        font-size: 15px;
+        color: #fff;
+        text-decoration: none;
+        line-height: 1.7;
+        padding: 5px 7px;
+        font-weight: 600;
+        display: block;
+        transition: .5s ease all;
+        
+    }
+
+    .menu ul li a:hover,
+    .menu li.dropmenu ul li a:hover {
+        color: #8CC542;
+    }
+
+    .menu li.dropmenu:hover::after {
+        border-color: #8CC542;
+    }
+
+    .menu li.dropmenu {
+        position: relative;
+        margin-right: 20px;
+    }
+
+    .menu li.dropmenu::after {
+        content: "";
+        position: absolute;
+        top: 46%;
+        right: -10px;
+        border: solid white;
+        border-width: 0 1px 1px 0;
+        transform: translateY(-50%) rotate(45deg);
+        display: inline-block;
+        padding: 3px;
+    }
+
+    .menu li.dropmenu:hover ul {
+        transform: scale(1);
+    }
+
+    .menu li.dropmenu ul {
+        position: absolute;
+        background: #F9F9F9;
+        width: 200px;
+        height: auto;
+        padding: 15px 10px;
+        transform: scale(0);
+        z-index: 1111;
+        padding: 0;
+        transition: .5s ease all;
+    }
+
+    .menu li.dropmenu ul li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        width: 100%;
+    }
+
+    .menu li.dropmenu ul li:last-child {
+        border-bottom: none;
+    }
+
+    .menu li.dropmenu ul li a {
+        color: #0E62AA;
+        transition: .5s ease all;
+        display: block;
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    .menu ul li.see {
+        margin-left: auto;
+    }
+
+    .menu ul li.see a {
+        background: #8CC542;
+        padding: 5px 20px;
+    }
+
+    .menu ul li.see:hover a {
+        background: #FF951A;
+        color: #fff;
+    }
+
+    .toggle_nav {
+        display: none;
+    }
+
+    @media (max-width: 992px) {
+        header {
+            position: relative;
+        }
+
+        .menu {
+            position: absolute;
+            background: #0E62AA;
+            left: -150%;
+            top: 100%;
+            transition: .5s ease all;
+            width: 235px;
+        }
+
+        .menu ul {
+            flex-direction: column;
+        }
+
+        .menu ul li {
+            border-bottom: 1px solid #216EB1;
+            width: 100%;
+        }
+
+        .menu ul li:last-child {
+            border-bottom: 0;
+        }
+
+        .menu li.dropmenu::after {
+            right: 10px;
+        }
+
+        .menu ul li.see {
+            margin-left: 0;
+        }
+
+        .toggle_nav:checked~.menu {
+            left: 0;
+            transition: .5s ease all;
+        }
+
+        .toggle_nav:checked~.toggle_nav_label span::before {
+            transform: rotate(45deg);
+            bottom: -1px;
+        }
+
+        .toggle_nav:checked~.toggle_nav_label span::after {
+            transform: rotate(-45deg);
+            top: -1px;
+        }
+
+        .toggle_nav:checked~.toggle_nav_label span {
+            height: 0;
+        }
+
+        .toggle_nav_label {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-right: 16px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        .toggle_nav_label span,
+        .toggle_nav_label span::before,
+        .toggle_nav_label span::after {
+            position: relative;
+            height: 2px;
+            border-radius: 2px;
+            width: 30px;
+            background: #8CC542;
+            display: block;
+            transition: .5s ease all;
+        }
+
+        .toggle_nav_label span::before,
+        .toggle_nav_label span::after {
+            position: absolute;
+            content: "";
+        }
+
+        .toggle_nav_label span::before {
+            bottom: 7px;
+        }
+
+        .toggle_nav_label span::after {
+            top: 7px;
+        }
+    }
